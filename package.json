@@ -1,0 +1,32 @@
+{
+  "version": "0.0.5",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "build": "tsc",
+    "start": "node index.js",
+    "test": "jest",
+    "lint": "eslint . --ext .ts",
+    "format": "prettier --write .",
+    "prepare": "husky install",
+    "precommit": "lint-staged",
+    "postinstall": "husky install",
+    "test-sample": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express-basic-auth": "^1.2.1",
+    "@sentry/node": "^7.108.0",
+    "puppeteer": "21.6.1",
+    "@nestjs/schematics": "^10.0.0",
+    "nestjs-console": "^9.0.0",
+    "class-validator": "^0.14.0",
+    "@types/node": "^20.3.1",
+    "reflect-metadata": "^0.1.13",
+    "pg": "^8.11.3",
+    "@pontem/liquidswap-sdk": "^0.7.0",
+    "@aptos-labs/ts-sdk": "^1.9.1"
+  }
+}
