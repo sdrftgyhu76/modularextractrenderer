@@ -1,19 +1,16 @@
-const quickSortRandomPivot = (arr) => {
-  if (arr.length <= 1) {
-    return arr;
-  }
-  const pivotIndex = Math.floor(Math.random() * arr.length);
-  const pivot = arr[pivotIndex];
-  const left = [];
-  const right = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (i !== pivotIndex) {
-      if (arr[i] <= pivot) {
-        left.push(arr[i]);
-      } else {
-        right.push(arr[i]);
-      }
+function numDecodings(s) {
+  const dp = new Array(s.length + 1).fill(0);
+  dp[0] = 1;
+  dp[1] = s[0] === "0" ? 0 : 1;
+  for (let i = 2; i <= s.length; i++) {
+    const oneDigit = parseInt(s.substring(i - 1, i));
+    const twoDigits = parseInt(s.substring(i - 2, i));
+    if (oneDigit >= 1) {
+      dp[i] += dp[i - 1];
+    }
+    if (twoDigits >= 10 && twoDigits <= 26) {
+      dp[i] += dp[i - 2];
     }
   }
-  return quickSortRandomPivot(left).concat(pivot, quickSortRandomPivot(right));
-};
+  return dp[s.length];
+}
